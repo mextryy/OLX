@@ -1,1 +1,0 @@
-//g³ówny plik projektu 
