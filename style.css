@@ -1,38 +1,52 @@
+/*paleta kolorów do używania
+.color1 {color: #572b53;}
+.color2 {color: #7c355c;}
+.color3 {color: #b2496a;}
+.color4 {color: #f96c79;}
+.color5 {color: #ffa485;}
+
+
+
+.color1 {color: #243561;}
+.color2 {color: #604081;}
+.color3 {color: #b155a2;}
+.color4 {color: #ff77be;}
+.color5 {color: #ffa5d4;}
+*/
 *{
     margin:0 ;
     padding: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;/*zmienić na coś ciekawszego*/
     box-sizing: border-box;
 }
 body{
     background-color: rgb(236, 241, 240);
 }
-#wrapper{
-    width: 100%;
-    margin: 0 auto;
-}
-nav{
-    background-color: rgb(32, 134, 32);
-    display: flex; /* Flexbox dla rozmieszczenia */
-    justify-content: space-between; /* pierwszy element idzie na lewo ostatni na */
+header{
+    background-color: #572b53;
+    display:flex; 
+    justify-content: space-between; 
     align-items: center; 
-    height:auto;
+    padding: 20px,30px;
+}
+.left,
+.right {
+    display: flex;         
 }
 a.menu{
-    padding: 15px 30px;
+    padding: 20px 30px;
     color: white;
     text-decoration: none;
-    width: 15%;
+    align-items: center;
     transition: all 0,5s ease;
-    
     
 }
 a.menu:hover{
-    background-color: crimson;
+    background-color: #7c355c;
     cursor: pointer;
-    height: auto;
 }
 a.active{
-    background-color: crimson;
+    background-color:  #472645;
 }
+
    
