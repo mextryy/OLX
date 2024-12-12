@@ -10,6 +10,7 @@
 */
 
 /* naprawic ze stopka nie przylega do samego dołu */
+/* dodać ze po kliknięciu na serduszko ono zostaje czerwone  */
 * {
 	margin: 0;
 	padding: 0;
@@ -154,7 +155,9 @@ footer p {
     text-align:left;
     background-color:#f8f9fc;
     font-size: 15px;
-   
+}
+.product:hover{
+    cursor: pointer;
 }
 .product img{
     width:100%;
@@ -177,6 +180,20 @@ footer p {
     border: none;
     background-color:#f8f9fc;
     cursor: pointer;
+   
+  
+}
+.add-to-favorites svg:hover{
+    color:red;
+    fill: red;
+   
+}
+.add-to-favorites svg{
+    color: black;
+    fill: none;
+}
+.add-to-favorites svg.active{
+   
 }
 .add-to-basket{
     cursor: pointer;
@@ -186,3 +203,76 @@ footer p {
 .price{
     margin-left: 20px;
 }
+
+#przedmiot-section{
+    height: 1000px;
+    padding: 20px 40px;
+
+}
+section h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size:40px;
+    color: #30172e;
+
+}
+#przedmiot-form{
+    display: flex;
+    flex-direction: column;
+    padding: 40px 40px;
+    background-color: white;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+#przedmiot-form input,textarea{
+	height: 40px;
+    border-radius: 5px;
+    background-color:#f2f4f5;
+    border:none;
+    outline: none;
+    padding-left: 10px;
+}
+#przedmiot-form input:focus{
+    border-bottom: 2px solid #171617;
+}
+#nazwa,#marka{
+    max-width: 500px;
+}
+#cena ,#kolor {
+    max-width: 200px;
+}
+#stan,#kategoria{
+    max-width: 100px;
+    height: 30px;
+
+}
+#opis{
+    height: 200px;
+    padding:10px 10px;
+    max-width: 700px;
+    
+}
+#opis:focus{
+    border-bottom: 2px solid #171617;
+}
+#zdjecie{
+    max-width: 600px;
+}
+#przedmiot-form button{
+    margin-left: 1000px;
+    padding:10px 10px;
+    color:white;
+    font-size: 16px;
+    background-color:#30162e;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.space{
+    height:30px;
+    background-color:#f2f4f5; ;
+}
+
+
+
+
+

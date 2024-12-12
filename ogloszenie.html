@@ -27,12 +27,56 @@
         </div>
     </header>
 
-        <section></section>
-        
+        <section>
+            <div id="przedmiot-section">
+                <h1>Dodaj ogłoszenie</h1>
+                <form id="przedmiot-form">
+                    <label for="nazwa">Nazwa przedmiotu:</label>
+                    <input type="text" id="nazwa" required>
+
+                    <label for="cena">Cena:</label>
+                    <input type="number" id="cena" required>
+
+                    <label for="kolor">Kolor:</label>
+                    <input type="text" id="kolor" required>
+
+                    <label for="stan">Stan:</label>
+                    <select id="stan">
+                        <option value="nowe">Nowe</option>
+                        <option value="uzywane">Używane</option>
+                    </select>
+
+                    <label for="marka">Marka:</label>
+                    <input type="text" id="marka">
+                    
+                     <label for="kategoria">Kategoria:</label>
+                        <select id="kategoria">
+                        <option value="elektronika">Moda</option>
+                        <option value="odziez">Sport</option>
+                        <option value="meble">Elektronika</option>
+                        <option value="elektronika">Dom i ogród</option>
+                        <option value="odziez">Dla dzieci</option>
+                        <option value="meble">Motoryzacja</option>
+                        </select>
+
+                    <label for="opis">Opis:</label>
+                    <textarea id="opis" required></textarea>
+
+                    <label for="zdjecie">Link do zdjęcia:</label>
+                    <input type="url" id="zdjecie">
+
+                    <button type="submit">Dodaj</button>
+                </form>
+                <ul id="przedmioty-list"></ul>
+            </div>
+          
+        </section>
+        <div class="space"></div>
         <footer>
             <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda ,Sport ,Elektronika ,Dom i ogród ,Dla dziecioraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z ogłoszeniodawcą.Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić - tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
         </footer>
-    
+        <script src="klasy.js"></script>
+        <script src="ogloszenie.js"></script>
 </body>
 </html>
 
