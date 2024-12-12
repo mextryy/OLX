@@ -2,51 +2,187 @@
 .color1 {color: #572b53;}
 .color2 {color: #7c355c;}
 .color3 {color: #b2496a;}
-.color4 {color: #f96c79;}
-.color5 {color: #ffa485;}
-
-
-
 .color1 {color: #243561;}
 .color2 {color: #604081;}
 .color3 {color: #b155a2;}
 .color4 {color: #ff77be;}
 .color5 {color: #ffa5d4;}
 */
-*{
-    margin:0 ;
-    padding: 0;
-    font-family: 'Times New Roman', Times, serif;/*zmienić na coś ciekawszego*/
-    box-sizing: border-box;
+
+/* naprawic ze stopka nie przylega do samego dołu */
+* {
+	margin: 0;
+	padding: 0;
+    font-family: "Roboto", sans-serif;
+	box-sizing: border-box; 
 }
-body{
-    background-color: rgb(236, 241, 240);
+body {
+	background-color: #f2f4f5;
+    display:flex;
+    flex-direction: column;
 }
-header{
-    background-color: #572b53;
-    display:flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 20px,30px;
+header {
+	background-color: #572b53;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 .left,
 .right {
-    display: flex;         
+	display: flex;
 }
-a.menu{
+.logo{
+    font-family: "Oswald", sans-serif;
+    font-size: 23px;
+    line-height: 1;
+    height: 50px; /* Wymuszenie stałej wysokości */
+    display: flex;
+    align-items: center; 
     padding: 20px 30px;
     color: white;
-    text-decoration: none;
+	text-decoration: none;
+}
+a.menu {
+	padding: 20px 30px;
+	color: white;
+	text-decoration: none;
+	align-items: center;
+	transition: all 0, 5s ease;
+}
+a.menu:hover {
+	background-color: #7c355c;
+	cursor: pointer;
+}
+a.active {
+	background-color: #472645;
+}
+nav {
+	background-color: #f2f4f5;
+	display: flex;
+	align-items: center;
+	height: 150px;
+	margin-left: 20px;
+}
+.search-bar {
+	display: flex;
+	width: 300px;
+	padding: 0; /* Odstęp wewnętrzny */
+}
+.search-bar-input {
+	font-size: 18px;
+	padding-left: 5px;
+	border: none;
+	outline: none;
+	min-width: 1000px;
+	height: 70px;
+	padding: 60px, 30px;
+}
+.icon {
+	/*narazie prowizorycznie*/
+	background-color: white;
+	padding: 60px, 30px;
+	max-width: 50px;
+	height: auto;
+	padding-top: 23px;
+	padding-bottom: 23px;
+	padding-left: 10px;
+    border-top-left-radius: 10%;
+    border-bottom-left-radius: 10%;
+}
+a.search{
+    padding-top: 26px;
+	padding-bottom: 26px;
+	padding-left: 10px;
+    padding-right:30px;
+    background-color:#b2496a ;
+    color: white;
+	text-decoration: none;
+	align-items: center;
+    position: relative; /* Umożliwiamy przesunięcie względem oryginalnego miejsca */
+    left: 699px; 
+    border-top-right-radius: 10%;
+    border-bottom-right-radius: 10%;
+
+}
+main{
+    background-color:white;
+    height: 700px;
+    display:flex;
+    flex-direction: column;
     align-items: center;
-    transition: all 0,5s ease;
+    flex-grow: 1; /* Rozciąga main, aby wypełnił dostępne miejsce */
+    padding-top: 20px;
+}
+main p.head{
+    align-items: center;
+	padding: 20px, 30px;
+    color:#30162e;
+    font-size: 35px;
+    font-weight: bold;
+    padding-top: 20px;
     
 }
-a.menu:hover{
-    background-color: #7c355c;
+footer{
+    background-color: #f8c7ed;
+    align-items: center;
+    margin-top: auto;
+    width: 100%; /* Stopka będzie miała pełną szerokość */
+
+}
+footer p {
+    text-align: center; 
+    font-size: 10px;
+    width: 60%;
+    color:rgb(53, 53, 53);
+    margin: 10px auto; 
+    padding-bottom: 20px;
+    padding-top: 20px;
+    line-height: 1.6; 
+}
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    gap: 10px;
+    
+}
+.product{
+    max-width:300px;
+    display: flex;
+    flex-direction: column;
+    text-align:left;
+    background-color:#f8f9fc;
+    font-size: 15px;
+   
+}
+.product img{
+    width:100%;
+}
+.description{
+    margin: 10px ;
+    width: 90%;
+}
+.name{
+    font-size: 23px;
+    font-weight: bold;
+}
+.name-basket-favorites{
+    margin: 10px 10px ;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+}
+.add-to-favorites{
+    border: none;
+    background-color:#f8f9fc;
     cursor: pointer;
 }
-a.active{
-    background-color:  #472645;
+.add-to-basket{
+    cursor: pointer;
+    border: none;
+    background-color:#f8f9fc;
 }
-
-   
+.price{
+    margin-left: 20px;
+}

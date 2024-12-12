@@ -1,0 +1,10 @@
+SKRÓTY KLAWISZOWE
+ctrl + / - komentarz w html,css,javascript
+ctrl + alt + strzałka dół/góra -kopiowanie dużej ilości
+alt + strzałka dół/góra - przenoszenie linijek
+div>l>p*5^main  >przechodzi głębiej ^wychodzi
+.test -div z klasa test
+#test -div z id test
+p.test - paragraf z klasa test
+<script src=".js">main</script>
+
