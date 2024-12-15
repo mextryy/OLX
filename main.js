@@ -132,3 +132,6 @@ class Klient {
         console.log(`Klient ${this.nazwaUzytkownika} dodał przedmiot ${nazwaPrzedmiotu} do ulubionych.`);
     }
 }
+
+
+
