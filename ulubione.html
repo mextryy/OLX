@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tytuł do ustalenia</title>
-    <link rel="icon"href="favicon.ico">
-    <link rel="shortcut icon" href="favicon.ico"type="">
+    <title>Ulubione produkty</title>
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yuji+Mai&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -26,11 +20,60 @@
             <a class="menu" href="ogloszenie.html">Dodaj ogłoszenie</a>
         </div>
     </header>
+    <main>
+        <h1>Ulubione produkty</h1>
+        <section id="ulubione-produkty" class="products">
+        </section>
+    </main>
 
-        <section></section>
-        <footer>
-            <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda ,Sport ,Elektronika ,Dom i ogród ,Dla dziecioraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z ogłoszeniodawcą.Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić - tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
-        </footer>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ulubioneProdukty = JSON.parse(localStorage.getItem('ulubione')) || [];
+            const container = document.getElementById('ulubione-produkty');
+    
+            if (ulubioneProdukty.length > 0) {
+                ulubioneProdukty.forEach(produkt => {
+                    const div = document.createElement('div');
+                    div.className = 'product';
+                    div.innerHTML = `
+                        <img src="${produkt.imgSrc}" alt="${produkt.nazwa}" style="width: 100%; height: auto;">
+                        <h2>${produkt.nazwa}</h2>
+                        <p>${produkt.cena}</p>
+                        <p>${produkt.opis}</p>
+                        <button class="add-to-cart" data-nazwa="${produkt.nazwa}" 
+                                data-cena="${produkt.cena}" data-opis="${produkt.opis}" 
+                                data-img="${produkt.imgSrc}">
+                            Dodaj do koszyka
+                        </button>
+                    `;
+                    container.appendChild(div);
+                });
+    
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const nazwa = e.target.getAttribute('data-nazwa');
+                        const cena = e.target.getAttribute('data-cena');
+                        const opis = e.target.getAttribute('data-opis');
+                        const imgSrc = e.target.getAttribute('data-img');
+    
+                        dodajDoKoszyka(nazwa, cena, opis, imgSrc);
+                    });
+                });
+            } else {
+                container.innerHTML = '<p>Brak ulubionych produktów.</p>';
+            }
+        });
+
+        function dodajDoKoszyka(nazwa, cena, opis, imgSrc) {
+            let koszyk = JSON.parse(localStorage.getItem('koszyk')) || [];
+            const istnieje = koszyk.some(item => item.nazwa === nazwa);
+    
+            if (!istnieje) {
+                koszyk.push({ nazwa, cena, opis, imgSrc });
+                localStorage.setItem('koszyk', JSON.stringify(koszyk));
+                console.log("Dodano do koszyka:", { nazwa, cena, opis, imgSrc });
+            }
+        }
+    </script>
 </body>
 </html>

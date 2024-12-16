@@ -26,8 +26,39 @@
             <a class="menu" href="ogloszenie.html">Dodaj ogłoszenie</a>
         </div>
     </header>
-    <script src="script.js"></script>
-        <section></section>
+    <main>
+        <h1>Twój koszyk</h1>
+        <section id="koszyk-produkty" class="products">
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
+            const container = document.getElementById('koszyk-produkty');
+
+            if (koszykProdukty.length > 0) {
+                koszykProdukty.forEach(produkt => {
+                    const div = document.createElement('div');
+                    div.className = 'product';
+                    div.style.border = "1px solid #ddd";
+                    div.style.padding = "10px";
+                    div.style.margin = "10px";
+                    div.style.width = "200px";
+
+                    div.innerHTML = `
+                        <img src="${produkt.imgSrc}" alt="${produkt.nazwa}" style="width: 100%; height: auto;">
+                        <h2>${produkt.nazwa}</h2>
+                        <p>${produkt.cena}</p>
+                        <p>${produkt.opis}</p>
+                    `;
+                    container.appendChild(div);
+                });
+            } else {
+                container.innerHTML = '<p>Twój koszyk jest pusty.</p>';
+            }
+        });
+    </script>
         <footer>
             <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda ,Sport ,Elektronika ,Dom i ogród ,Dla dziecioraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z ogłoszeniodawcą.Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić - tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
         </footer>
