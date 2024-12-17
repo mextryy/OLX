@@ -21,7 +21,7 @@ body {
     display:flex;
     flex-direction: column;
     height: 100vh; /* Wysokość całego widoku przeglądarki */
-    overflow: hidden; /* ukrywa pasek przewiajania */
+    overflow-x: hidden; /* Ukrywa poziomy pasek przewijania */
 }
 header {
 	background-color: #572b53;
@@ -215,6 +215,12 @@ footer p {
     text-align: center;
     /* margin-top: -100px;  przesuniecie do gory */
 }
+.wrapper h2{
+    color:white;
+    font-size: 40px;  /* rozmiar czcionki */
+    text-align: center;
+    /* margin-top: -100px;  przesuniecie do gory */
+}
 .wrapper .input-box{
 width: 100%;
 height: 50px;
@@ -253,6 +259,11 @@ border-radius: 10px;
     font-weight: 600;
     cursor:pointer;
 }
+.login-link p a{
+    color:white;
+    font-weight: 600;
+    cursor:pointer;
+}
 .wrapper .form-box.login{
     /* display:none; niewidoczny */
     transition: transform .18s ease;
@@ -277,7 +288,12 @@ border-radius: 10px;
     transform: translateX(0);
     z-index: 2;
 }
-
+.wrapper .login-link{
+    color:white;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
 /* Stylowanie środka serduszka na różowo */
 .add-to-favorites img.clicked {
     filter: invert(37%) sepia(66%) saturate(2000%) hue-rotate(315deg) brightness(95%) contrast(88%);
