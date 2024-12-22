@@ -281,6 +281,7 @@ section h1{
     flex-direction: column; /* Elementy wewnątrz w kolumnie */
     overflow: hidden;
     transition: height .2s ease;
+  
 } 
 
 .wrapper h1{

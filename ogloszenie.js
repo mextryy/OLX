@@ -1,6 +1,4 @@
-
-
-
+//Kod wykona się kiedy strona się załaduje
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("przedmiot-form");
     const przedmiotyList = document.getElementById("przedmioty-list");
