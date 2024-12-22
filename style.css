@@ -369,6 +369,7 @@ border-radius: 10px;
     text-align: center;
     margin-top: 20px;
 }
+
 /* Stylowanie środka serduszka na różowo */
 .add-to-favorites img.clicked {
     filter: invert(37%) sepia(66%) saturate(2000%) hue-rotate(315deg) brightness(95%) contrast(88%);
