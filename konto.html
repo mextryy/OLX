@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tytuł do ustalenia</title>
-    <link rel="icon"href="favicon.ico">
-    <link rel="shortcut icon" href="favicon.ico"type="">
+    <title>HandelHub - Rejestracja i Logowanie</title>
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style-konto.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yuji+Mai&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -25,63 +19,49 @@
             <a class="menu active" href="konto.html">Twoje konto</a>
             <a class="menu" href="ogloszenie.html">Dodaj ogłoszenie</a>
         </div>
-        
-            <!-- </form>
-            </div> -->
-    
     </header>
+
     <div class="wrapper">
         <div class="form-box login">
-        <form action="">
-            <h1>zaloguj</h1>
-            <div class="input-box">
-                <input type="text" placeholder="username"
-                required>
-            </div>
-            <div class="input-box">
-                <input type="password" placeholder="password"
-                required>
-            </div>
-            <!-- <div class=""remember forgot">
-            <label><input type="checkbox">remember me</label>
-            </div> -->
-            <button type="submit" class="btn">login</button>
-
-            <div class="register-link">
-                <p>jeśli nie masz konta <a href="#">zarejestruj sie</a></p>
-            </div>
-        </form>
-    </div>
-
-            <div class="form-box register">
-                <form action="">
-                    <h2>zarejestruj sie</h2>
-                    <div class="input-box">
-                        <input type="text" placeholder="username"
-                        required>
-                    </div>
-                    <!-- <div class="input-box">
-                        <input type="email" placeholder="mail"
-                        required>
-                    </div> -->
-                    <div class="input-box">
-                        <input type="password" placeholder="password"
-                        required>
-                    </div>
-                    <!-- <div class=""remember forgot">
-                    <label><input type="checkbox">remember me</label>
-                    </div> -->
-                    <button type="submit" class="btn">zarejestruj sie</button>
-        
-                    <div class="login-link">
-                        <p>jeśli masz już konto <a href="#">zaloguj sie</a></p>
-                    </div>
+            <form id="loginForm">
+                <h1>Zaloguj</h1>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
                 </div>
-        <section></section>
-        <!-- <footer>
-            <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda ,Sport ,Elektronika ,Dom i ogród ,Dla dziecioraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z ogłoszeniodawcą.Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić - tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
-        </footer> -->
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn">Zaloguj</button>
+                <div class="register-link">
+                    <p>Jeśli nie masz konta <a href="#" id="goToRegister">Zarejestruj się</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <form id="registerForm">
+                <h2>Zarejestruj się</h2>
+                <div class="input-box">
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="input-box">
+                    <label for="role">Wybierz rolę:</label>
+                    <select id="role" required>
+                        <option value="klient">Klient</option>
+                        <option value="sprzedawca">Sprzedawca</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Zarejestruj się</button>
+                <div class="login-link">
+                    <p>Masz już konto? <a href="#" id="goToLogin">Zaloguj się</a></p>
+                </div>
+            </form>
+        </div>
     </div>
+
     <script src="skrypt1.js"></script>
 </body>
 </html>
