@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HandelHub - Rejestracja i Logowanie</title>
     <link rel="icon" href="favicon.ico">
@@ -22,6 +22,7 @@
     </header>
 
     <div class="wrapper">
+        <!-- Formularz logowania -->
         <div class="form-box login">
             <form id="loginForm">
                 <h1>Zaloguj</h1>
@@ -38,6 +39,7 @@
             </form>
         </div>
 
+        <!-- Formularz rejestracji -->
         <div class="form-box register">
             <form id="registerForm">
                 <h2>Zarejestruj się</h2>
@@ -59,6 +61,12 @@
                     <p>Masz już konto? <a href="#" id="goToLogin">Zaloguj się</a></p>
                 </div>
             </form>
+        </div>
+
+        <!-- Formularz konta (po zalogowaniu) -->
+        <div class="account" style="display:none;">
+            <h2 class="welcome-message"></h2>
+            <p><a href="#" id="logout">Wyloguj się</a></p>
         </div>
     </div>
 

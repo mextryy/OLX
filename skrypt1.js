@@ -1,4 +1,4 @@
-// Przełączanie formularzy rejestracji i logowania
+// Funkcja przełączająca formularze rejestracji i logowania
 const wrapper = document.querySelector('.wrapper');
 const goToRegister = document.getElementById('goToRegister');
 const goToLogin = document.getElementById('goToLogin');
@@ -20,10 +20,8 @@ function saveUserToLocalStorage(username, password, role) {
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const newUser = { username, password, role };
 
-    console.log("Dodawanie nowego użytkownika:", newUser);
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
-    console.log("Zapisano do localStorage:", users);
 }
 
 // Funkcja do sprawdzenia poprawności logowania
@@ -33,10 +31,33 @@ function validateLogin(username, password) {
     
     if (user) {
         sessionStorage.setItem('userRole', user.role); // Zapisz rolę w sessionStorage
+        sessionStorage.setItem('username', username); // Zapisz nazwę użytkownika w sessionStorage
         return true;
     }
     return false;
 }
+
+// Funkcja sprawdzająca, czy użytkownik jest zalogowany
+function checkLoginStatus() {
+    const userRole = sessionStorage.getItem('userRole');
+    const username = sessionStorage.getItem('username');
+    const loginForm = document.querySelector('.login');
+    const accountForm = document.querySelector('.account');
+    
+    if (userRole && username) {
+        // Jeśli użytkownik jest zalogowany, pokaż dane konta
+        loginForm.style.display = 'none';
+        accountForm.style.display = 'block';
+        document.querySelector('.welcome-message').innerText = `Witaj, ${username}!`;
+    } else {
+        // Jeśli użytkownik nie jest zalogowany, pokaż formularz logowania
+        loginForm.style.display = 'block';
+        accountForm.style.display = 'none';
+    }
+}
+
+// Wywołaj funkcję sprawdzającą stan logowania po załadowaniu strony
+document.addEventListener('DOMContentLoaded', checkLoginStatus);
 
 // Obsługa formularza rejestracji
 registerForm.addEventListener('submit', (event) => {
@@ -80,4 +101,12 @@ loginForm.addEventListener('submit', (event) => {
     } else {
         alert('Proszę wypełnić wszystkie pola!');
     }
+});
+
+// Obsługa wylogowania
+document.getElementById('logout').addEventListener('click', () => {
+    sessionStorage.removeItem('userRole');
+    sessionStorage.removeItem('username');
+    checkLoginStatus(); // Zaktualizuj stan logowania
+    alert('Wylogowano pomyślnie!');
 });
