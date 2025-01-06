@@ -8,5 +8,117 @@ div>l>p*5^main  >przechodzi głębiej ^wychodzi
 p.test - paragraf z klasa test
 naciśnięcie kólka myszki i zjechanie na doł-kilka kursorów
 
-
+<!-- <div class="product">
+                <img src="images/stół.png"  width="200" height="230"alt="table">
+                <div class="name-basket-favorites">
+                    <p class="name">Stół</p>
+                    <div> 
+                        <button class="add-to-basket">
+                            <img src="images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
+                        </button>
+                        <button class="add-to-favorites">
+                            <img src="images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
+                        </button>
+                    </div>
+                </div>
+                <p class="price">500 zł</p>
+                <p class="description">Elegancki stół dębowy, idealny do dużych jadalni. Stabilna konstrukcja i nowoczesny wygląd sprawiają, że będzie pasować do każdego wnętrza.</p>
+            </div>
+            <div class="product">
+                <img src="images/kurtka-zimowa.png"  width="200" height="230"alt="winter jacket">
+                <div class="name-basket-favorites">
+                    <p class="name">Kurtka zimowa</p>
+                    <div> 
+                        <button class="add-to-basket">
+                            <img src="images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
+                        </button>
+                        <button class="add-to-favorites">
+                            <img src="images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
+                        </button>
+                    </div>
+                </div>
+                <p class="price">299 zł</p>
+                <p class="description">Ciepła, elegancka kurtka zimowa z kapturem. Idealna na chłodne dni. Wykonana z materiałów odpornych na wiatr i deszcz.</p>
+            </div>
+            <div class="product">
+                <img src="images/pilka.png" width="200" height="230" alt="football">
+                <div class="name-basket-favorites">
+                    <p class="name">Piłka do piłki nożnej</p>
+                    <div> 
+                        <button class="add-to-basket">
+                            <img src="images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
+                        </button>
+                        <button class="add-to-favorites">
+                            <img src="images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
+                        </button>
+                    </div>
+                </div>
+                <p class="price">99 zł</p>
+                <p class="description">Piłka do piłki nożnej profesjonalnej jakości, idealna do treningów i meczów. Wytrzymała i odporna na ścieranie.</p>
+            </div>
+            <div class="product">
+                <img src="images/sluchawki.png" width="200" height="230"alt="headphones">
+                <div class="name-basket-favorites">
+                    <p class="name">Słuchawki</p>
+                    <div> 
+                        <button class="add-to-basket">
+                            <img src="images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
+                        </button>
+                        <button class="add-to-favorites">
+                            <img src="images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
+                        </button>
+                    </div>
+                </div>
+                <p class="price">199 zł</p>
+                <p class="description">Bezprzewodowe słuchawki Bluetooth z doskonałą jakością dźwięku i komfortem noszenia. Idealne do słuchania muzyki i prowadzenia rozmów.</p>
+            </div>
+            <div class="product">
+                <img src="images/zabawka.png"  width="200" height="230"alt="toy">
+                <div class="name-basket-favorites">
+                    <p class="name">Zabawka edukacyjna</p>
+                    <div> 
+                        <button class="add-to-basket">
+                            <img src="images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
+                        </button>
+                        <button class="add-to-favorites">
+                            <img src="images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
+                        </button>
+                    </div>
+                </div>
+                <p class="price">49 zł</p>
+                <p class="description">Zabawka edukacyjna dla dzieci w wieku 2-5 lat, pomagająca w nauce kolorów i kształtów. Wykonana z bezpiecznych materiałów.</p>
+            </div>
+            <div class="product">
+                <img src="images/kamera-samochodowa.png"  width="200" height="230"alt="car camera">
+                <div class="name-basket-favorites">
+                    <p class="name">Kamera do auta</p>
+                    <div> 
+                        <button class="add-to-basket">
+                            <img src="images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
+                        </button>
+                        <button class="add-to-favorites">
+                            <img src="images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
+                        </button>
+                    </div>
+                </div>
+                <p class="price">350 zł</p>
+                <p class="description">Kamera samochodowa z funkcją nagrywania w jakości Full HD. Wyposażona w szerokokątny obiektyw oraz tryb nocny.</p>
+            </div>
+            <div class="product">
+                <img src="images/smartwatch.png"  width="200" height="230"alt="smartwatch">
+                <div class="name-basket-favorites">
+                    <p class="name">Smartwatch</p>
+                    <div> 
+                        <button class="add-to-basket">
+                            <img src="images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
+                        </button>
+                        <button class="add-to-favorites">
+                            <img src="images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
+                        </button>
+                    </div>
+                </div>
+                <p class="price">399 zł</p>
+                <p class="description">Nowoczesny smartwatch z funkcjami monitorowania zdrowia, śledzenia aktywności oraz powiadomieniami ze smartfona.</p>
+            </div> -->
+                                    
 

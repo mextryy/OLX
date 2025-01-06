@@ -15,25 +15,6 @@ function saveToLocalStorage() {
 // Ładowanie danych z localStorage
 let products = loadFromLocalStorage(); // Tablica produktów z localStorage lub pusta tablica
 
-// // Funkcja renderująca przedmioty na stronie
-// function renderProducts() {
-//     const przedmiotyList = document.getElementById("przedmioty-list");
-//     przedmiotyList.innerHTML = ""; // Wyczyść listę przedmiotów
-
-//     // Dodaj każdy przedmiot do listy
-//     products.forEach((item) => {
-//         const listItem = document.createElement("li");
-//         listItem.innerHTML = `
-//             <strong>${item.nazwa}</strong> - ${item.cena} PLN
-//             <br>Kolor: ${item.kolor}, Stan: ${item.stan}, Marka: ${item.marka}, Kategoria: ${item.kategoria}
-//             <br>${item.opis}
-//             ${item.zdjecie ? `<br><img src="${item.zdjecie}" alt="${item.nazwa}" style="max-width: 200px;">` : ""}
-//         `;
-//         przedmiotyList.appendChild(listItem);
-//     });
-// }
-
-
 function renderProducts() {
     const przedmiotyList = document.getElementById("przedmioty-list");
     przedmiotyList.innerHTML = ""; // Wyczyść listę przedmiotów

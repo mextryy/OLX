@@ -53,7 +53,7 @@ a.menu {
 }
 a.menu:hover {
 	background-color: #7c355c;
-	cursor: pointer;
+	cursor:pointer;
 }
 a.active {
 	background-color: #472645;
