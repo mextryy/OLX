@@ -1,10 +1,8 @@
 // Funkcja filtrująca przedmioty na podstawie wpisanego tekstu w wyszukiwarce
-function searchItems(query) {
-    // Filtrujemy produkty, sprawdzając czy nazwa lub opis zawierają tekst z pola wyszukiwania
+function wyszukajPrzedmiot(query) {
+    // Filtrujemy produkty, sprawdzając czy nazwa zawiera tekst z pola wyszukiwania
     const filteredItems = products.filter(product => {
         const nameMatch = product.nazwa.toLowerCase().includes(query.toLowerCase());
-        // const descriptionMatch = product.opis.toLowerCase().includes(query.toLowerCase());
-        // return nameMatch || descriptionMatch;
         return nameMatch
     });
     
@@ -16,10 +14,10 @@ function searchItems(query) {
 const searchInput = document.querySelector('.search-bar-input');
 searchInput.addEventListener('input', (event) => {
     const query = event.target.value;
-    searchItems(query);
+    wyszukajPrzedmiot(query);
 });
 
-// Funkcja renderująca produkty na stronie (na podstawie tablicy przekazanej jako argument)
+// Funkcja renderująca produkty na stronie 
 function renderItems(items) {
     const productsContainer = document.querySelector('.products');
     productsContainer.innerHTML = ''; // Czyści obszar przed renderowaniem nowych produktów
@@ -43,7 +41,7 @@ function renderItems(items) {
             </div>
             <p class="price">${item.cena} zł</p>
             <p class="description">${item.opis}</p>
-            <button class="remove-btn" onclick="removeProduct('Krzesło')">Usuń</button>
+           
         `;
         productsContainer.appendChild(productDiv);
     });
@@ -63,3 +61,5 @@ const products = loadFromLocalStorage();
 
 // Początkowe renderowanie wszystkich produktów
 renderItems(products);
+
+

@@ -59,11 +59,13 @@ a.active {
 	background-color: #472645;
 }
 nav {
+    padding-top:50px;
 	background-color: #f2f4f5;
 	display: flex;
 	align-items: center;
-	height: 150px;
+	height: 100px;
 	margin-left: 20px;
+    
 }
 .search-bar {
 	display: flex;
@@ -373,4 +375,46 @@ border-radius: 10px;
 /* Stylowanie środka serduszka na różowo */
 .add-to-favorites img.clicked {
     filter: invert(37%) sepia(66%) saturate(2000%) hue-rotate(315deg) brightness(95%) contrast(88%);
+}
+.filters{
+    padding-top: 30px;
+    display:flex;
+    flex-direction:row;
+    color: #333; 
+   
+    
+}
+#filterForm{
+    display:flex;
+    flex-direction:row;
+    gap: 20px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+   
+}
+.filters h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 25px;
+    color: #5b2a6c; /* Pasujący kolor */
+    margin-bottom: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+#filterForm input,
+#filterForm select {
+    padding: 4px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px; /* Zaokrąglenia narożników */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+#filterForm input{
+    width:200px; /* Szerokość dopasowana do rodzica */
+}
+#fix{
+    display:flex;
+    flex-direction:column;
 }

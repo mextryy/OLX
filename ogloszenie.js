@@ -26,7 +26,7 @@ function renderProducts() {
             <strong>${item.nazwa}</strong> - ${item.cena} PLN
             <br>Kolor: ${item.kolor}, Stan: ${item.stan}, Marka: ${item.marka}, Kategoria: ${item.kategoria}
             <br>${item.opis}
-            ${item.zdjecie ? `<br><img src="${item.zdjecie}" alt="${item.nazwa}" style="max-width: 200px;">` : ""}`;
+         ${item.zdjecie ? `<br><img src="${item.zdjecie}" alt="${item.nazwa}" style="max-width: 200px;">` : ""}`;
         przedmiotyList.appendChild(listItem);
     });
 }
