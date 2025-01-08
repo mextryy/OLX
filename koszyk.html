@@ -32,52 +32,51 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
-            const container = document.getElementById('koszyk-produkty');
-    
-            if (koszykProdukty.length > 0) {
-                koszykProdukty.forEach((produkt, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'product';
-                    div.style.border = "1px solid #ddd";
-                    div.style.padding = "10px";
-                    div.style.margin = "10px";
-                    div.style.width = "200px";
-    
-                    div.innerHTML = `
-                        <img src="${produkt.imgSrc}" alt="${produkt.nazwa}" style="width: 100%; height: auto;">
-                        <h2>${produkt.nazwa}</h2>
-                        <p>${produkt.cena}</p>
-                        <p>${produkt.opis}</p>
-                        <button class="usun-z-ulubionych" data-index="${index}" style="background-color: #FFC0CB; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 5px;">
-    Usuń
-</button>
-                    `;
-    
-                    container.appendChild(div);
-                });
-    
-               
-                const usunPrzyciski = document.querySelectorAll('.usun-produkt');
-                usunPrzyciski.forEach(przycisk => {
-                    przycisk.addEventListener('click', (event) => {
-                        const index = event.target.getAttribute('data-index');
-                        usunZKoszyka(index);
-                    });
-                });
-            } else {
-                container.innerHTML = '<p>Twój koszyk jest pusty.</p>';
-            }
+       document.addEventListener('DOMContentLoaded', () => {
+    const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
+    const container = document.getElementById('koszyk-produkty');
+
+    if (koszykProdukty.length > 0) {
+        koszykProdukty.forEach((produkt, index) => {
+            const div = document.createElement('div');
+            div.className = 'product';
+            div.style.border = "1px solid #ddd";
+            div.style.padding = "10px";
+            div.style.margin = "10px";
+            div.style.width = "200px";
+
+            div.innerHTML = `
+                <img src="${produkt.imgSrc}" alt="${produkt.nazwa}" style="width: 100%; height: auto;">
+                <h2>${produkt.nazwa}</h2>
+                <p>${produkt.cena}</p>
+                <p>${produkt.opis}</p>
+                <button class="usun-z-ulubionych" data-index="${index}" style="background-color: #FFC0CB; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 5px;">
+                    Usuń
+                </button>
+            `;
+
+            container.appendChild(div);
         });
-    
-    
-        function usunZKoszyka(index) {
-            const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
-            koszykProdukty.splice(index, 1);
-            localStorage.setItem('koszyk', JSON.stringify(koszykProdukty)); 
-            location.reload(); 
-        }
+
+        // Poprawiony selektor
+        const usunPrzyciski = document.querySelectorAll('.usun-z-ulubionych');
+        usunPrzyciski.forEach(przycisk => {
+            przycisk.addEventListener('click', (event) => {
+                const index = event.target.getAttribute('data-index');
+                usunZKoszyka(index);
+            });
+        });
+    } else {
+        container.innerHTML = '<p>Twój koszyk jest pusty.</p>';
+    }
+});
+
+function usunZKoszyka(index) {
+    const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
+    koszykProdukty.splice(index, 1);
+    localStorage.setItem('koszyk', JSON.stringify(koszykProdukty)); 
+    location.reload(); 
+}
     </script>
         <footer>
             <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda ,Sport ,Elektronika ,Dom i ogród ,Dla dziecioraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z ogłoszeniodawcą.Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić - tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
