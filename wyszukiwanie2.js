@@ -1,4 +1,4 @@
-function filtrujIWyszukaj(query, filters) {
+function wyszukajPrzedmiot(query, filters) {
     const filteredItems = products.filter(product => {
         const nameMatch = product.nazwa.toLowerCase().includes(query.toLowerCase());
         
@@ -92,7 +92,7 @@ function renderItems(items) {
 document.getElementById('search').addEventListener('click', () => {
     const query = document.querySelector('.search-bar-input').value.trim();
     const filters = getFilters();
-    filtrujIWyszukaj(query, filters);
+   wyszukajPrzedmiot(query, filters);
 });
 
 // Automatyczne przywracanie produktów po usunięciu tekstu
