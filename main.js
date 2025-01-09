@@ -71,3 +71,16 @@ function dodajDoKoszyka(nazwa, cena, opis, imgSrc) {
         console.log("Produkt już znajduje się w koszyku:", nazwa);
     }
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const kupTerazButton = document.getElementById('kup-teraz');
+
+    kupTerazButton.addEventListener('click', () => {
+        const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
+        
+        if (koszykProdukty.length === 0) {
+            alert("Twój koszyk jest pusty!");
+        } else {
+            alert("Dziękujemy za zakupy! Zostaniesz przekierowany na stronę płatności.");
+        }
+    });
+});
