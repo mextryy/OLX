@@ -56,6 +56,8 @@ form.addEventListener("submit", (event) => {
     const opis = document.getElementById("opis").value;
     const zdjecie = document.getElementById("zdjecie").value;
 
+
+
     // Tworzenie nowego przedmiotu
     const newProduct = {
         nazwa,
@@ -66,7 +68,8 @@ form.addEventListener("submit", (event) => {
         kategoria,
         opis,
         dostepnosc: true, // Domyślnie przedmiot jest dostępny
-        zdjecie
+        zdjecie,
+        
     };
 
     // Dodanie nowego przedmiotu do tablicy

@@ -10,7 +10,8 @@ const products = [
         kategoria: "Sport",
         opis: "Super wygodne",
         dostepnosc: true,
-        zdjecie: ""
+        zdjecie: "",
+        
     },
     {
         nazwa: "Buty do biegania",
@@ -21,7 +22,8 @@ const products = [
         kategoria: "Sport",
         opis: "Super wygodne",
         dostepnosc: true,
-        zdjecie: ""
+        zdjecie: "",
+        
     }
 ];
 // Eksportowanie tablicy przedmiotów

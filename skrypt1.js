@@ -30,8 +30,8 @@ function validateLogin(username, password) {
     const user = users.find(user => user.username === username && user.password === password);
     
     if (user) {
-        sessionStorage.setItem('userRole', user.role); // Zapisz rolę w sessionStorage
-        sessionStorage.setItem('username', username); // Zapisz nazwę użytkownika w sessionStorage
+        localStorage.setItem('userRole', user.role); // Zapisz rolę w localStorage
+        localStorage.setItem('username', username); // Zapisz nazwę użytkownika w localStorage
         return true;
     }
     return false;
@@ -39,8 +39,8 @@ function validateLogin(username, password) {
 
 // Funkcja sprawdzająca, czy użytkownik jest zalogowany
 function checkLoginStatus() {
-    const userRole = sessionStorage.getItem('userRole');
-    const username = sessionStorage.getItem('username');
+    const userRole = localStorage.getItem('userRole');
+    const username = localStorage.getItem('username');
     const loginForm = document.querySelector('.login');
     const accountForm = document.querySelector('.account');
     
@@ -89,7 +89,7 @@ loginForm.addEventListener('submit', (event) => {
             alert('Zalogowano pomyślnie!');
             loginForm.reset();
 
-            const userRole = sessionStorage.getItem('userRole');
+            const userRole = localStorage.getItem('userRole');
             if (userRole === 'sprzedawca') {
                 window.location.href = 'sprzedawca.html'; // Przekierowanie na stronę sprzedawcy
             } else {
@@ -105,8 +105,8 @@ loginForm.addEventListener('submit', (event) => {
 
 // Obsługa wylogowania
 document.getElementById('logout').addEventListener('click', () => {
-    sessionStorage.removeItem('userRole');
-    sessionStorage.removeItem('username');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('username');
     checkLoginStatus(); // Zaktualizuj stan logowania
     alert('Wylogowano pomyślnie!');
 });
