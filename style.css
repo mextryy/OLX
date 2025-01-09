@@ -1,16 +1,4 @@
-/*paleta kolorów do używania
-.color1 {color: #572b53;}
-.color2 {color: #7c355c;}
-.color3 {color: #b2496a;}
-.color1 {color: #243561;}
-.color2 {color: #604081;}
-.color3 {color: #b155a2;}
-.color4 {color: #ff77be;}
-.color5 {color: #ffa5d4;}
-*/
 
-/* naprawic ze stopka nie przylega do samego dołu */
-/* dodać ze po kliknięciu na serduszko ono zostaje czerwone  */
 * {
 	margin: 0;
 	padding: 0;
@@ -110,7 +98,8 @@ a.search{
 }
 main{
     background-color:white;
-    height: 700px;
+    height: auto;
+    min-height: 700px;
     display:flex;
     flex-direction: column;
     align-items: center;
