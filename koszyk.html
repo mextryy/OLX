@@ -29,12 +29,26 @@
         <h1>Twój koszyk</h1>
         <section id="koszyk-produkty" class="products">
         </section>
+        <section id="koszyk-suma">
+            <h2>Suma:</h2>
+            <p id="suma-cen">0 zł</p>
+            <button id="kup-teraz" style="background-color: #ff00aa; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; font-size: 16px;">Kup teraz</button>
+        </section>
     </main>
 
     <script>
        document.addEventListener('DOMContentLoaded', () => {
     const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
     const container = document.getElementById('koszyk-produkty');
+    const sumaCenElement = document.getElementById('suma-cen');
+
+    function obliczSumeCen() {
+        const suma = koszykProdukty.reduce((acc, produkt) => {
+            const cena = parseFloat(produkt.cena.replace(/[^0-9,.]/g, '').replace(',', '.')) || 0;
+            return acc + cena;
+        }, 0);
+        sumaCenElement.textContent = `${suma.toFixed(2)} zł`;
+    }
 
     if (koszykProdukty.length > 0) {
         koszykProdukty.forEach((produkt, index) => {
@@ -58,7 +72,6 @@
             container.appendChild(div);
         });
 
-        // Poprawiony selektor
         const usunPrzyciski = document.querySelectorAll('.usun-z-ulubionych');
         usunPrzyciski.forEach(przycisk => {
             przycisk.addEventListener('click', (event) => {
@@ -69,14 +82,15 @@
     } else {
         container.innerHTML = '<p>Twój koszyk jest pusty.</p>';
     }
-});
 
-function usunZKoszyka(index) {
-    const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
-    koszykProdukty.splice(index, 1);
-    localStorage.setItem('koszyk', JSON.stringify(koszykProdukty)); 
-    location.reload(); 
-}
+    obliczSumeCen();
+
+    function usunZKoszyka(index) {
+        koszykProdukty.splice(index, 1);
+        localStorage.setItem('koszyk', JSON.stringify(koszykProdukty)); 
+        location.reload(); 
+    }
+});
     </script>
         <footer>
             <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda ,Sport ,Elektronika ,Dom i ogród ,Dla dziecioraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z ogłoszeniodawcą.Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić - tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
