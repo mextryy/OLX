@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HandelHub </title>
     <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="style-konto.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico">
     <link rel="shortcut icon" href="favicon.ico" type="">
@@ -28,74 +27,41 @@
         </div>
         <div class="right">
             <a class="menu" href="index.html">Wyloguj się </a> 
-            <a class="menu" href="konto-sprzedawca.html">Twoje konto</a>
-            <a class="menu active" href="ogloszenie.html">Dodaj ogłoszenie</a>
+            <a class="menu " href="ogloszenie.html">Dodaj ogłoszenie</a>
+            <a class="menu active" href="konto-sprzedawca.html">Twoje konto</a>
         </div>
     </header>
-    <div class="wrapper">
-        <!-- Formularz logowania -->
-        <div class="form-box login">
-            <form id="loginForm">
-                <h1>Zaloguj</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn">Zaloguj</button>
-                <div class="register-link">
-                    <p>Jeśli nie masz konta <a href="#" id="goToRegister">Zarejestruj się</a></p>
-                </div>
+    <main>
+        <section id="formularz-danych">
+            <h2>Wprowadź dane</h2>
+            <form id="form-danych-klienta">
+            <label for="adres">Adres</label>
+            <input type="text" id="adres" name="adres" placeholder="Wprowadź swój adres" required>
+        
+            <label for="wiek">Wiek</label>
+            <input type="number" id="wiek" name="wiek" placeholder="Wprowadź swój wiek" required>
+        
+            <label for="telefon">Numer telefonu</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="Wprowadź numer telefonu" required>
+        
+            <button type="submit" class="save-btn">Zapisz dane</button>
             </form>
-        </div>
+            <p class="error" id="error-message"></p>
+        </section>
 
-        <!-- Formularz rejestracji -->
-        <div class="form-box register">
-            <form id="registerForm">
-                <h2>Zarejestruj się</h2>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                </div>
-                <div class="input-box">
-                    <label for="role">Wybierz rolę:</label>
-                    <select id="role" required>
-                        <option value="klient">Klient</option>
-                        <option value="sprzedawca">Sprzedawca</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Zarejestruj się</button>
-                <div class="login-link">
-                    <p>Masz już konto? <a href="#" id="goToLogin">Zaloguj się</a></p>
-                </div>
-            </form>
-        </div>
-
-        <!-- Formularz konta (po zalogowaniu) -->
-        <div class="account" style="display:none;">
-            <h2 class="welcome-message"></h2>
-            <p><a href="#" id="logout">Wyloguj się</a></p>
-        </div> 
-
-    <!-- </div>
-         Formularz konta (po zalogowaniu) 
-        <div class="account" style="display:none;">
-            <h2 class="welcome-message"></h2>
-            <p><a href="#" id="logout">Wyloguj się</a></p>
-        </div> 
-
-     <h1>Witaj, Kliencie!</h1>
-
-    <div class="account">
-        <p class="welcome-message"></p>
-        Inne dane konta użytkownika 
-        <button id="logout">Wyloguj się</button>
-    </div> -->
-
-
+        <section id="user-data-section">
+            <h3>Dane użytkownika</h3>
+            <p><strong>Adres:</strong> <span id="address-value">Brak danych</span></p>
+            <p><strong>Wiek:</strong> <span id="age-value">Brak danych</span></p>
+            <p><strong>Numer telefonu:</strong> <span id="phone-value">Brak danych</span></p>
+        </section>
+    </main>
+    <footer>
+        <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda ,Sport ,Elektronika ,Dom i ogród ,Dla
+            dziecioraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z
+            ogłoszeniodawcą.Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić -
+            tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
+    </footer>
     <script src="skrypt1.js"></script>
 </body>
 </html>

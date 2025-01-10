@@ -42,6 +42,11 @@
     </main>
 
     <script>
+        document.getElementById('kup-teraz').addEventListener('click', () => {
+    // Przekierowanie na stronę płatności
+    window.location.href = 'wysylka.html'; 
+});
+
        document.addEventListener('DOMContentLoaded', () => {
     const koszykProdukty = JSON.parse(localStorage.getItem('koszyk')) || [];
     const container = document.getElementById('koszyk-produkty');
@@ -53,6 +58,8 @@
             return acc + cena;
         }, 0);
         sumaCenElement.textContent = `${suma.toFixed(2)} zł`;
+        // Zapisz sumę w sessionStorage
+        localStorage.setItem('sumaKoszyka', suma.toFixed(2));
     }
 
     if (koszykProdukty.length > 0) {

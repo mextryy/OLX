@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przetwarzanie płatności - HandelHub</title>
+    <style>
+        /* Stylowanie strony */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        /* Tło całej strony */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Szare tło */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Stylizacja okna komunikatu */
+        .message-box {
+            background-color: #ffffff;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .message-box h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Stylizacja spinnera ładowania */
+        .spinner {
+            border: 5px solid #f3f3f3; /* Tło spinnera */
+            border-top: 5px solid #3498db; /* Kolor górnej części spinnera */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        /* Animacja obrotu spinnera */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Szare tło z komunikatem -->
+    <div class="overlay">
+        <div class="message-box">
+            <h1>Przetwarzanie płatności, proszę poczekać...</h1>
+            <div class="spinner"></div> <!-- Spinner ładowania -->
+        </div>
+    </div>
+
+    <script>
+        // Ustawienie opóźnienia 5 sekund i przekierowanie na inną stronę
+        setTimeout(function() {
+            window.location.href = 'koszyk.html'; // Przekierowanie na stronę potwierdzenia
+        }, 5000); // 5000 ms = 5 sekund
+    </script>
+</body>
+</html>
