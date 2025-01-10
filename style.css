@@ -507,4 +507,44 @@ border-radius: 10px;
     text-align: center;
 }
 
+/* Styl dla sekcji danych użytkownika */
+#user-data-section {
+    background-color: white;
+    padding: 30px;  /* Zwiększenie paddingu dla większej przestrzeni */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;  /* Maksymalna szerokość sekcji */
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;  /* Ustawienie elementów w kolumnie */
+    gap: 20px;  /* Zwiększenie odstępu między elementami */
+}
+
+/* Styl dla nagłówka sekcji danych użytkownika */
+#user-data-section h3 {
+    font-size: 24px;
+    color: #30162e;  /* Kolor ciemniejszy, aby pasował do innych sekcji */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Styl dla tekstu w sekcji (adres, wiek, telefon) */
+#user-data-section p {
+    font-size: 16px;
+    color: #333;  /* Stonowany kolor tekstu */
+    margin: 10px 0;  /* Odstęp między wierszami */
+}
+
+/* Styl dla elementów, które wyświetlają dane użytkownika */
+#user-data-section span {
+    font-weight: bold;
+    color: #572b53;  /* Kolor tekstu dla danych użytkownika */
+}
+
+/* Opcjonalny styl dla pustych danych użytkownika */
+#user-data-section span:empty {
+    color: #bbb;  /* Szary kolor, gdy brakuje danych */
+    font-style: italic;  /* Kursywa dla braku danych */
+}
 

@@ -110,3 +110,9 @@ document.getElementById('logout').addEventListener('click', () => {
     checkLoginStatus(); // Zaktualizuj stan logowania
     alert('Wylogowano pomyślnie!');
 });
+
+
+
+
+
+
