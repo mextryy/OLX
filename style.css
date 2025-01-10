@@ -435,3 +435,76 @@ border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
+
+
+/* Styl dla formularza danych klienta */
+#formularz-danych {
+    background-color: white;
+    padding: 30px;  /* Zwiększono padding dla większej przestrzeni wewnątrz formularza */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;  /* Zwiększenie szerokości formularza */
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;  /* Ustawienie elementów w kolumnie */
+    gap: 20px;  /* Zwiększenie odstępu między elementami formularza */
+    min-height: 400px;  /* Zwiększenie wysokości formularza */
+}
+
+/* Styl dla etykiet formularza */
+#formularz-danych label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Styl dla pól formularza */
+#formularz-danych input {
+    height: 45px;  
+    padding-left: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 20px;  
+}
+
+/* Styl dla aktywnego pola formularza (focus) */
+#formularz-danych input:focus {
+    border-color: #572b53;
+}
+
+/* Styl dla przycisku "Zapisz" */
+#formularz-danych button {
+    padding: 14px;
+    font-size: 18px;  /* Zwiększenie rozmiaru tekstu na przycisku */
+    background-color: #572b53;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#formularz-danych button:hover {
+    background-color: #7c355c;
+}
+
+/* Styl dla sekcji nagłówka formularza */
+#formularz-danych h2 {
+    font-size: 28px;  
+    color: #30162e;
+    margin-bottom: 30px;  
+    text-align: center;
+}
+
+/* Styl dla komunikatów o błędach */
+#formularz-danych .error {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}
+
+

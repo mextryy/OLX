@@ -33,68 +33,30 @@
             <a class="menu active" href="konto-klient.html">Twoje konto</a>
         </div>
     </header>
-    <!-- <div class="wrapper">
-      
-        <div class="form-box login">
-            <form id="loginForm">
-                <h1>Zaloguj</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                </div>
-                <button type="submit" class="btn">Zaloguj</button>
-                <div class="register-link">
-                    <p>Jeśli nie masz konta <a href="#" id="goToRegister">Zarejestruj się</a></p>
-                </div>
+    <main>
+        <section id="formularz-danych">
+            <h2>Wprowadź dane</h2>
+            <form id="form-danych-klienta">
+                <label for="adres">Adres</label>
+                <input type="text" id="adres" name="adres" placeholder="Wprowadź swój adres" required>
+                
+                <label for="wiek">Wiek</label>
+                <input type="number" id="wiek" name="wiek" placeholder="Wprowadź swój wiek" required>
+                
+                <label for="telefon">Numer telefonu</label>
+                <input type="tel" id="telefon" name="telefon" placeholder="Wprowadź numer telefonu" required>
+                
+                <button type="submit" class="save-btn">Zapisz dane</button>
             </form>
-        </div>
-
-      
-        <div class="form-box register">
-            <form id="registerForm">
-                <h2>Zarejestruj się</h2>
-                <div class="input-box">
-                    <input type="text" placeholder="Username" required>
-                </div>
-                <div class="input-box">
-                    <input type="password" placeholder="Password" required>
-                </div>
-                <div class="input-box">
-                    <label for="role">Wybierz rolę:</label>
-                    <select id="role" required>
-                        <option value="klient">Klient</option>
-                        <option value="sprzedawca">Sprzedawca</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Zarejestruj się</button>
-                <div class="login-link">
-                    <p>Masz już konto? <a href="#" id="goToLogin">Zaloguj się</a></p>
-                </div>
-            </form>
-        </div>
-
-     
-        <div class="account" style="display:none;">
-            <h2 class="welcome-message"></h2>
-            <p><a href="#" id="logout">Wyloguj się</a></p>
-        </div> 
-
-    </div>
-         Formularz konta (po zalogowaniu) 
-        <div class="account" style="display:none;">
-            <h2 class="welcome-message"></h2>
-            <p><a href="#" id="logout">Wyloguj się</a></p>
-        </div> 
-
-     <h1>Witaj, Kliencie!</h1>
-
-    <div class="account">
-        <p class="welcome-message"></p>
-        Inne dane konta użytkownika 
-        <button id="logout">Wyloguj się</button>
-    </div> --> 
+            <p class="error" id="error-message"></p>
+        </section>
+        
+        <!-- Sekcja wyświetlania danych użytkownika -->
+        <section id="user-data-section">
+            <!-- Dodatkowe dane użytkownika będą wyświetlane tutaj -->
+        </section>
+        
+    </main>
 
 
     <script src="skrypt1.js"></script>
