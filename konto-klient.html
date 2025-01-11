@@ -36,15 +36,18 @@
         <section id="formularz-danych">
             <h2>Wprowadź dane</h2>
             <form id="form-danych-klienta">
-                <label for="adres">Adres</label>
-                <input type="text" id="adres" name="adres" placeholder="Wprowadź swój adres" required>
-                
-                <label for="wiek">Wiek</label>
-                <input type="number" id="wiek" name="wiek" placeholder="Wprowadź swój wiek" required>
-                
-                <label for="telefon">Numer telefonu</label>
-                <input type="tel" id="telefon" name="telefon" placeholder="Wprowadź numer telefonu" required>
-                
+                <div>
+                    <label for="adres">Adres</label>
+                    <input type="text" id="adres" name="adres" placeholder="Wprowadź swój adres" required>  
+                </div>
+                <div>
+                    <label for="wiek">Wiek</label>
+                    <input type="number" id="wiek" name="wiek" placeholder="Wprowadź swój wiek" required>
+                </div>
+                <div>
+                    <label for="telefon">Numer telefonu</label>
+                    <input type="tel" id="telefon" name="telefon" placeholder="Wprowadź numer telefonu" required>
+                </div>
                 <button type="submit" class="save-btn">Zapisz dane</button>
             </form>
             <p class="error" id="error-message"></p>
