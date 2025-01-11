@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yuji+Mai&display=swap" rel="stylesheet">
     <title>Przetwarzanie płatności - HandelHub</title>
     <style>
         /* Stylowanie strony */
@@ -16,8 +27,6 @@
             align-items: center;
             background-color: #f4f4f4;
         }
-
-        /* Tło całej strony */
         .overlay {
             position: fixed;
             top: 0;
@@ -29,8 +38,6 @@
             justify-content: center;
             align-items: center;
         }
-
-        /* Stylizacja okna komunikatu */
         .message-box {
             background-color: #ffffff;
             padding: 30px 50px;
@@ -40,24 +47,20 @@
             max-width: 500px;
             width: 100%;
         }
-
         .message-box h1 {
             color: #333;
             font-size: 24px;
             margin-bottom: 20px;
         }
-
-        /* Stylizacja spinnera ładowania */
         .spinner {
-            border: 5px solid #f3f3f3; /* Tło spinnera */
-            border-top: 5px solid #3498db; /* Kolor górnej części spinnera */
+            border: 5px solid #f3f3f3; 
+            border-top: 5px solid #3498db; 
             border-radius: 50%;
             width: 40px;
             height: 40px;
             animation: spin 1s linear infinite;
             margin: 20px auto;
         }
-
         /* Animacja obrotu spinnera */
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -66,20 +69,18 @@
     </style>
 </head>
 <body>
-
     <!-- Szare tło z komunikatem -->
     <div class="overlay">
         <div class="message-box">
             <h1>Przetwarzanie płatności, proszę poczekać...</h1>
-            <div class="spinner"></div> <!-- Spinner ładowania -->
+            <div class="spinner"></div> 
         </div>
     </div>
-
     <script>
         // Ustawienie opóźnienia 5 sekund i przekierowanie na inną stronę
         setTimeout(function() {
-            window.location.href = 'koszyk.html'; // Przekierowanie na stronę potwierdzenia
-        }, 5000); // 5000 ms = 5 sekund
+            window.location.href = '/koszyk.html'; // Przekierowanie na stronę potwierdzenia
+        }, 5000); 
     </script>
 </body>
 </html>

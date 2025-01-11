@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HandelHub</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="/style-zakup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yuji+Mai&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Nagłówek strony -->
+    <header>
+        <div class="left">
+            <a class="logo" href="">HandelHub</a> 
+        </div>
+    </header>
+
+    <h3>Formularz dostawy</h3>
+
+    <!-- Formularz dostawy -->
+    <form action="potwierdzenie.html" method="POST" onsubmit="return validateForm()">
+        <!-- Wybór metody przesyłki -->
+        <fieldset>
+            <legend><strong>Wybierz metodę przesyłki:</strong></legend>
+            <!-- Opcje wyboru metody przesyłki -->
+            <label>
+                <input type="radio" name="metoda_przesylki" value="kurier" required>
+                Kurier
+            </label><br>
+            <label>
+                <input type="radio" name="metoda_przesylki" value="paczkomaty" required>
+                Paczkomaty
+            </label><br>
+            <label>
+                <input type="radio" name="metoda_przesylki" value="poczta" required>
+                Przesyłka pocztowa
+            </label><br>
+            <label>
+                <input type="radio" name="metoda_przesylki" value="punkty" required>
+                Punkty odbioru
+            </label>
+
+            <!-- Pola dla Kuriera -->
+            <div id="kurier-fields" class="form-section hidden">
+                <label for="kurier-address">Podaj adres:</label>
+                <input type="text" id="kurier-address" name="kurier-address" placeholder="Np. ul. Długa 12, Warszawa">
+            </div>
+
+            <!-- Pola dla Paczkomatów -->
+            <div id="paczkomaty-fields" class="form-section hidden">
+                <label for="paczkomat">Wybierz paczkomat:</label>
+                <select id="paczkomat" name="paczkomat">
+                    <option value="">Wybierz paczkomat</option>
+                    <option value="paczkomat_001">Paczkomat Warszawa 001</option>
+                    <option value="paczkomat_002">Paczkomat Kraków 002</option>
+                    <option value="paczkomat_003">Paczkomat Gdańsk 003</option>
+                </select>
+            </div>
+
+            <!-- Pola dla Przesyłki pocztowej -->
+            <div id="poczta-fields" class="form-section hidden">
+                <label for="poczta-address">Podaj adres:</label>
+                <input type="text" id="poczta-address" name="poczta-address" placeholder="Np. ul. Krótka 5, Wrocław">
+            </div>
+
+            <!-- Pola dla Punktów odbioru -->
+            <div id="punkty-fields" class="form-section hidden">
+                <label for="punkt">Wybierz punkt odbioru:</label>
+                <select id="punkt" name="punkt">
+                    <option value="">Wybierz punkt odbioru</option>
+                    <option value="punkt_001">Punkt Warszawa 001</option>
+                    <option value="punkt_002">Punkt Kraków 002</option>
+                    <option value="punkt_003">Punkt Gdańsk 003</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <!-- Dane adresowe -->
+        <fieldset>
+            <legend><strong>Wprowadź dane adresowe:</strong></legend>
+            <!-- Pola do wpisania danych adresowych -->
+            <label for="kraj">Kraj:</label><br>
+            <input type="text" id="kraj" name="kraj" required><br><br>
+
+            <label for="wojewodztwo">Województwo:</label><br>
+            <input type="text" id="wojewodztwo" name="wojewodztwo" required><br><br>
+
+            <label for="miasto">Miasto:</label><br>
+            <input type="text" id="miasto" name="miasto" required><br><br>
+
+            <label for="ulica">Ulica:</label><br>
+            <input type="text" id="ulica" name="ulica" required><br><br>
+
+            <label for="numer_mieszkania">Numer mieszkania:</label><br>
+            <input type="text" id="numer_mieszkania" name="numer_mieszkania" required><br><br>
+
+            <label for="numer_lokalu">Numer lokalu (opcjonalne):</label><br>
+            <input type="text" id="numer_lokalu" name="numer_lokalu"><br><br>
+
+            <label for="kod_pocztowy">Kod pocztowy:</label><br>
+            <input type="text" id="kod_pocztowy" name="kod_pocztowy" pattern="[0-9]{2}-[0-9]{3}" required placeholder="00-000"><br><br>
+        </fieldset>
+
+        <!-- Skrypt do obsługi widoczności pól w zależności od wybranej metody przesyłki -->
+        <script>
+            // Funkcja walidacji formularza
+            function validateForm() {
+            const form = document.querySelector('form');
+            // Automatyczna walidacja przeglądarki
+            if (!form.checkValidity()) {
+            alert('Upewnij się, że wszystkie wymagane pola zostały poprawnie uzupełnione!');
+            return false; // Nie wysyłaj formularza, jeśli są błędy
+             }
+    
+            // Jeśli walidacja zakończyła się sukcesem, przekieruj do strony potwierdzenia
+            window.location.href = 'potwierdzenie.html'; 
+            return false; // Zapobiega wysyłaniu formularza, ponieważ przekierowanie odbywa się w JavaScript
+             }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const wybierzFormeWysyłki = document.querySelectorAll('input[name="metoda_przesylki"]');
+                const kurierFields = document.getElementById('kurier-fields');
+                const paczkomatyFields = document.getElementById('paczkomaty-fields');
+                const pocztaFields = document.getElementById('poczta-fields');
+                const punktyFields = document.getElementById('punkty-fields');
+
+                wybierzFormeWysyłki.forEach(input => {
+                    input.addEventListener('change', (event) => {
+                        // Ukryj wszystkie pola na początku
+                        kurierFields.classList.add('hidden');
+                        paczkomatyFields.classList.add('hidden');
+                        pocztaFields.classList.add('hidden');
+                        punktyFields.classList.add('hidden');
+
+                        // Wyświetl odpowiednią sekcję na podstawie wyboru
+                        const selectedMethod = event.target.value;
+                        if (selectedMethod === 'kurier') {
+                            kurierFields.classList.remove('hidden');
+                        } else if (selectedMethod === 'paczkomaty') {
+                            paczkomatyFields.classList.remove('hidden');
+                        } else if (selectedMethod === 'poczta') {
+                            pocztaFields.classList.remove('hidden');
+                        } else if (selectedMethod === 'punkty') {
+                            punktyFields.classList.remove('hidden');
+                        }
+                    });
+                });
+            });
+        </script>
+
+        <!-- Przycisk do wysłania formularza -->
+        <button 
+        type="submit" 
+        style="background-color: #ff00aa; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; font-size: 16px;">
+        Przejdź do potwierdzenia
+         </button>
+
+        <!-- Przycisk do anulowania -->
+        <button 
+            type="button" 
+            onclick="window.location.href='/koszyk.html'" 
+            style="background-color: #51454d; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; font-size: 16px;">
+            Anuluj
+        </button>
+    </form>
+
+    <!-- Stopka strony -->
+    <footer>
+        <p>Dziękujemy za zakupy w HandelHub!</p>
+    </footer>
+</body>
+</html>
