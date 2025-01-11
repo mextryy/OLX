@@ -18,11 +18,22 @@ const loginForm = document.querySelector('#loginForm');
 // Funkcja zapisu nowego użytkownika do localStorage
 function saveUserToLocalStorage(username, password, role) {
     const users = JSON.parse(localStorage.getItem('users')) || [];
+    
+    // Sprawdzenie, czy nazwa użytkownika już istnieje
+    const userExists = users.some(user => user.username === username);
+    
+    if (userExists) {
+        alert('Użytkownik o tej nazwie już istnieje!');
+        return false; // Zatrzymanie procesu rejestracji
+    }
+    
     const newUser = { username, password, role };
-
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
+    
+    return true; // Rejestracja zakończona sukcesem
 }
+
 
 // Funkcja do sprawdzenia poprawności logowania
 function validateLogin(username, password) {
@@ -59,7 +70,51 @@ function checkLoginStatus() {
 // Wywołaj funkcję sprawdzającą stan logowania po załadowaniu strony
 document.addEventListener('DOMContentLoaded', checkLoginStatus);
 
-// Obsługa formularza rejestracji
+// // Obsługa formularza rejestracji
+// registerForm.addEventListener('submit', (event) => {
+//     event.preventDefault();
+
+//     const username = registerForm.querySelector('input[type="text"]').value;
+//     const password = registerForm.querySelector('input[type="password"]').value;
+//     const role = registerForm.querySelector('#role').value;
+
+//     if (username && password) {
+//         const isSaved = saveUserToLocalStorage(username, password, role);
+        
+//         if (isSaved) {
+//             alert('Rejestracja zakończona sukcesem!');
+//             registerForm.reset();
+//         }
+//     } else {
+//         alert('Proszę wypełnić wszystkie pola!');
+//     }
+// });
+// Funkcja obsługi rejestracji
+// registerForm.addEventListener('submit', (event) => {
+//     event.preventDefault();
+
+//     const username = registerForm.querySelector('input[type="text"]').value;
+//     const password = registerForm.querySelector('input[type="password"]').value;
+//     const role = registerForm.querySelector('#role').value;
+
+//     // Walidacja hasła
+//     if (!validatePassword(password)) {
+//         alert('Hasło musi mieć co najmniej 4 znaki i zawierać co najmniej jedną cyfrę!');
+//         return; // Przerwanie rejestracji, jeśli hasło nie spełnia wymagań
+//     }
+
+//     if (username && password) {
+//         const isSaved = saveUserToLocalStorage(username, password, role);
+        
+//         if (isSaved) {
+//             alert('Rejestracja zakończona sukcesem!');
+//             registerForm.reset();
+//         }
+//     } else {
+//         alert('Proszę wypełnić wszystkie pola!');
+//     }
+// });
+// Funkcja obsługi rejestracji
 registerForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -67,14 +122,27 @@ registerForm.addEventListener('submit', (event) => {
     const password = registerForm.querySelector('input[type="password"]').value;
     const role = registerForm.querySelector('#role').value;
 
+    // Walidacja hasła
+    if (!validatePassword(password)) {
+        alert('Hasło musi mieć co najmniej 4 znaki i zawierać co najmniej jedną cyfrę!');
+        return; // Przerwanie rejestracji, jeśli hasło nie spełnia wymagań
+    }
+
     if (username && password) {
-        saveUserToLocalStorage(username, password, role);
-        alert('Rejestracja zakończona sukcesem!');
-        registerForm.reset();
+        const isSaved = saveUserToLocalStorage(username, password, role);
+        
+        if (isSaved) {
+            alert('Rejestracja zakończona sukcesem!');
+            registerForm.reset();
+            
+            // Po udanej rejestracji przełącz formularz na logowanie
+            wrapper.classList.remove('active');
+        }
     } else {
         alert('Proszę wypełnić wszystkie pola!');
     }
 });
+
 
 // Obsługa formularza logowania
 loginForm.addEventListener('submit', (event) => {
@@ -111,7 +179,12 @@ document.getElementById('logout').addEventListener('click', () => {
     alert('Wylogowano pomyślnie!');
 });
 
-
+// Funkcja walidacji hasła
+function validatePassword(password) {
+    // Sprawdzenie, czy hasło ma co najmniej 4 znaki i zawiera przynajmniej jedną liczbę
+    const passwordPattern = /^(?=.*\d).{4,}$/;
+    return passwordPattern.test(password);
+}
 
 
 

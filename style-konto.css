@@ -80,14 +80,57 @@ a.active {
     text-align: center;
     /* margin-top: -100px;  przesuniecie do gory */
 }
-.wrapper .input-box{
+ .wrapper .input-box{
 width: 100%;
-height: 50px;
+height: 60px;
 background: white;
 margin: 30px 0;
 border-radius: 10px;
 
+} 
+/* Stylizacja etykiety "Wybierz rolę" */
+.wrapper .input-box .role-label {
+    font-size: 14px; /* Zmniejszona czcionka */
+    color: #000000;
+    background-color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    line-height: 1.5; /* Dostosowanie wysokości linii */
 }
+/* Stylizacja samego selecta */
+.wrapper .input-box .role-select {
+    width: 55%; /* Zwiększona szerokość selecta (ale nie za duża) */
+    height: 40px; /* Wysokość selecta */
+    font-size: 14px; /* Rozmiar czcionki */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    padding: 0 15px; /* Wewnętrzne odstępy */
+    background-color: #fff; /* Tło */
+    border: 1px solid #ccc; /* Kolor ramki */
+    color: #333; /* Kolor tekstu */
+    transition: border-color 0.3s ease; /* Płynna zmiana koloru obramowania */
+    margin: 10px auto 0; /* Margines na górze (10px), wyśrodkowanie */
+}
+/* Stylizacja czcionki opcji w select */
+.wrapper .input-box .role-select option {
+    font-size: 14px; /* Zmniejszenie rozmiaru czcionki dla opcji */
+}
+
+
+/* Stylizacja selecta po najechaniu */
+.wrapper .input-box .role-select:hover {
+    border-color: #572b53; /* Zmiana koloru obramowania */
+}
+
+/* Stylizacja selecta po kliknięciu */
+.wrapper .input-box .role-select:focus {
+    border-color: #7c355c; /* Kolor obramowania po wybraniu */
+    outline: none;
+}
+
 .input-box input{ /* edycja tego co jest w srodku input-box szerokosc wyskosc ramka */
     width: 100%;
     height: 100%;
@@ -99,6 +142,18 @@ login-link p a{
     color:white;
     font-weight: 600;
     cursor:pointer;
+}
+#goToLogin {
+    color: white;  /* Change the color to white */
+    font-weight: 600;
+    cursor: pointer;
+}
+.login-link p {
+    color: white;  /* Make the "Masz już konto?" text white */
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+    
 }
 wrapper .login-link{
     color:white;
