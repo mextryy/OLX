@@ -42,11 +42,11 @@
                 </div>
                 <div>
                     <label for="wiek">Wiek</label>
-                    <input type="number" id="wiek" name="wiek" placeholder="Wprowadź swój wiek" required>
+                    <input type="number" id="wiek" name="wiek" placeholder="Wprowadź swój wiek" required min="18">
                 </div>
                 <div>
                     <label for="telefon">Numer telefonu</label>
-                    <input type="tel" id="telefon" name="telefon" placeholder="Wprowadź numer telefonu" required>
+                    <input type="tel" id="telefon" name="telefon" placeholder="Wprowadź numer telefonu" required pattern="\d{9}" maxlength="9"required>
                 </div>
                 <button type="submit" class="save-btn">Zapisz dane</button>
             </form>
