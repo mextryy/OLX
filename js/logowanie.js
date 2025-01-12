@@ -129,9 +129,9 @@ loginForm.addEventListener('submit', (event) => {
             
             // Przekierowanie na odpowiednią stronę w zależności od roli użytkownika
             if (userRole === 'sprzedawca') {
-                window.location.href = '/sprzedawca.html';
+                window.location.href = '/html/sprzedawca.html';
             } else {
-                window.location.href = '/klient.html';
+                window.location.href = '/html/klient.html';
             }
         } else {
             alert('Błędne dane logowania!');

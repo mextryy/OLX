@@ -73,10 +73,10 @@ function renderItems(items) {
                     <p class="name">${item.nazwa}</p>
                     <div> 
                         <button class="add-to-basket">
-                            <img src="images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
+                            <img src="/images/basket-svgrepo-com.png" alt="basket" width="30" height="25">
                         </button>
                         <button class="add-to-favorites">
-                            <img src="images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
+                            <img src="/images/heart-svgrepo-com.png" alt="heart" width="30" height="25">
                         </button>
                     </div>
                 </div>
