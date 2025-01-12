@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HandelHub</title>
+    
     <link rel="icon" href="favicon.ico">
     <link rel="shortcut icon" href="favicon.ico" type="">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Yuji+Mai&display=swap" rel="stylesheet">
@@ -20,34 +17,46 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
+    
 </head>
 <body>
+    <!-- Nagłówek strony -->
     <header>
         <div class="left">
-            <a class="logo" href="klient.html">HandelHub</a>
+            <!-- Logo z linkiem do strony klienta -->
+            <a class="logo" href="/klient.html">HandelHub</a>
         </div>
-        <div class="right"> 
-            <a class="menu" href="index.html">Wyloguj się </a>
+        <div class="right">
+            <!-- Menu nawigacyjne -->
+            <a class="menu" href="logowanie.html">Wyloguj się</a>
             <a class="menu active" href="ulubione.html">Ulubione</a>
             <a class="menu" href="koszyk.html">Koszyk</a>
-            <a class="menu" href="konto-klient.html">Twoje konto</a>
+            <a class="menu" href="/konto-klient.html">Twoje konto</a>
         </div>
     </header>
     <main>
+        <!-- Nagłówek sekcji głównej -->
         <h1>Ulubione produkty</h1>
-        <section id="ulubione-produkty" class="products">
-        </section>
+        <!-- Sekcja z ulubionymi produktami -->
+        <section id="ulubione-produkty" class="products"></section>
     </main>
-
     <script>
+        // Po załadowaniu zawartości strony
         document.addEventListener('DOMContentLoaded', () => {
+            // Pobranie ulubionych produktów z localStorage
             const ulubioneProdukty = JSON.parse(localStorage.getItem('ulubione')) || [];
             const container = document.getElementById('ulubione-produkty');
-    
-            if (ulubioneProdukty.length > 0) {
-                ulubioneProdukty.forEach((produkt, index) => {
+            
+            // Filtruj produkty dostępne
+            const produktyDostepne = ulubioneProdukty.filter(produkt => produkt.available !== false);
+
+            // Jeśli są dostępne produkty, wyświetl je
+            if (produktyDostepne.length > 0) {
+                produktyDostepne.forEach((produkt, index) => {
                     const div = document.createElement('div');
                     div.className = 'product';
+
+                    // Tworzenie struktury HTML dla każdego produktu
                     div.innerHTML = `
                         <img src="${produkt.imgSrc}" alt="${produkt.nazwa}" style="width: 100%; height: auto;">
                         <h2>${produkt.nazwa}</h2>
@@ -58,24 +67,26 @@
                                 data-img="${produkt.imgSrc}">
                             Dodaj do koszyka
                         </button>
-                        <button class="usun-z-ulubionych" data-index="${index}" style="background-color: #FFC0CB; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 5px;"> Usuń</button>
+                        <button class="usun-z-ulubionych" data-index="${index}" 
+                                style="background-color: #FFC0CB; color: white; padding: 5px 10px; border: none; cursor: pointer; border-radius: 5px;">
+                            Usuń
+                        </button>
                     `;
                     container.appendChild(div);
                 });
-    
-                // Obsługa dodawania do koszyka
+
+                // Obsługa dodawania produktów do koszyka
                 document.querySelectorAll('.add-to-cart').forEach(button => {
                     button.addEventListener('click', (e) => {
                         const nazwa = e.target.getAttribute('data-nazwa');
                         const cena = e.target.getAttribute('data-cena');
                         const opis = e.target.getAttribute('data-opis');
                         const imgSrc = e.target.getAttribute('data-img');
-    
                         dodajDoKoszyka(nazwa, cena, opis, imgSrc);
                     });
                 });
 
-                // Obsługa usuwania z ulubionych
+                // Obsługa usuwania produktów z ulubionych
                 document.querySelectorAll('.usun-z-ulubionych').forEach(button => {
                     button.addEventListener('click', (e) => {
                         const index = e.target.getAttribute('data-index');
@@ -83,32 +94,37 @@
                     });
                 });
             } else {
+                // Wyświetl komunikat, jeśli brak ulubionych produktów
                 container.innerHTML = '<p>Brak ulubionych produktów.</p>';
             }
         });
 
-        // Funkcja dodawania do koszyka
+        // Funkcja dodająca produkt do koszyka
         function dodajDoKoszyka(nazwa, cena, opis, imgSrc) {
             let koszyk = JSON.parse(localStorage.getItem('koszyk')) || [];
             const istnieje = koszyk.some(item => item.nazwa === nazwa);
-    
+
             if (!istnieje) {
+                // Dodaj produkt, jeśli nie istnieje już w koszyku
                 koszyk.push({ nazwa, cena, opis, imgSrc });
                 localStorage.setItem('koszyk', JSON.stringify(koszyk));
                 console.log("Dodano do koszyka:", { nazwa, cena, opis, imgSrc });
             }
         }
 
-        // Funkcja usuwania z ulubionych
+        // Funkcja usuwająca produkt z ulubionych
         function usunZUlubionych(index) {
             let ulubioneProdukty = JSON.parse(localStorage.getItem('ulubione')) || [];
-            ulubioneProdukty.splice(index, 1); // Usuń produkt z tablicy
-            localStorage.setItem('ulubione', JSON.stringify(ulubioneProdukty)); // Zaktualizuj localStorage
-            location.reload(); // Odśwież stronę, aby zaktualizować widok
+            // Usuń produkt z listy
+            ulubioneProdukty.splice(index, 1);
+            localStorage.setItem('ulubione', JSON.stringify(ulubioneProdukty));
+            // Odśwież stronę, by zaktualizować widok
+            location.reload();
         }
     </script>
-      <footer>
-        <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda ,Sport ,Elektronika ,Dom i ogród ,Dla dzieci oraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z ogłoszeniodawcą.Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić - tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
+    <!-- Stopka strony -->
+    <footer>
+        <p>HandelHub.pl to darmowe ogłoszenia lokalne w kategoriach: Moda, Sport, Elektronika, Dom i ogród, Dla dzieci oraz Motoryzacja. Szybko znajdziesz tu ciekawe ogłoszenia i łatwo skontaktujesz się z ogłoszeniodawcą. Jeśli chcesz coś sprzedać - w prosty sposób dodasz bezpłatne ogłoszenia. Chcesz coś kupić - tutaj znajdziesz ciekawe okazje, taniej niż w sklepie. Sprzedawaj po sąsiedzku na HandelHub.pl</p>
     </footer>
 </body>
 </html>

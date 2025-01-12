@@ -1,25 +1,29 @@
-// Funkcja przełączająca formularze rejestracji i logowania
+
+ // Funkcja przełączająca formularze rejestracji i logowania
 const wrapper = document.querySelector('.wrapper');
 const goToRegister = document.getElementById('goToRegister');
 const goToLogin = document.getElementById('goToLogin');
 
-// Przełącz formularze
+// Przełącz formularze na rejestrację
 goToRegister.addEventListener('click', () => {
     wrapper.classList.add('active');
 });
+
+// Przełącz formularze na logowanie
 goToLogin.addEventListener('click', () => {
     wrapper.classList.remove('active');
 });
 
-// Pobieramy formularze
+// Pobieramy formularze rejestracji i logowania
 const registerForm = document.querySelector('#registerForm');
 const loginForm = document.querySelector('#loginForm');
 
 // Funkcja zapisu nowego użytkownika do localStorage
-function saveUserToLocalStorage(username, password, role) {
+function zarejestrujSie(username, password, role) {
+    // Pobierz listę użytkowników z localStorage lub ustaw pustą tablicę
     const users = JSON.parse(localStorage.getItem('users')) || [];
     
-    // Sprawdzenie, czy nazwa użytkownika już istnieje
+    // Sprawdzenie, czy użytkownik o danej nazwie już istnieje
     const userExists = users.some(user => user.username === username);
     
     if (userExists) {
@@ -27,36 +31,42 @@ function saveUserToLocalStorage(username, password, role) {
         return false; // Zatrzymanie procesu rejestracji
     }
     
+    // Tworzenie nowego użytkownika
     const newUser = { username, password, role };
     users.push(newUser);
+    
+    // Zapis nowej listy użytkowników do localStorage
     localStorage.setItem('users', JSON.stringify(users));
     
     return true; // Rejestracja zakończona sukcesem
 }
 
-
 // Funkcja do sprawdzenia poprawności logowania
-function validateLogin(username, password) {
+function zalogujSie(username, password) {
+    // Pobierz listę użytkowników z localStorage
     const users = JSON.parse(localStorage.getItem('users')) || [];
+    
+    // Znajdź użytkownika pasującego do podanej nazwy i hasła
     const user = users.find(user => user.username === username && user.password === password);
     
     if (user) {
-        localStorage.setItem('userRole', user.role); // Zapisz rolę w localStorage
-        localStorage.setItem('username', username); // Zapisz nazwę użytkownika w localStorage
-        return true;
+        // Zapisz dane użytkownika w localStorage
+        localStorage.setItem('userRole', user.role); 
+        localStorage.setItem('username', username);
+        return true; // Logowanie poprawne
     }
-    return false;
+    return false; // Błędne dane logowania
 }
 
 // Funkcja sprawdzająca, czy użytkownik jest zalogowany
 function checkLoginStatus() {
-    const userRole = localStorage.getItem('userRole');
-    const username = localStorage.getItem('username');
-    const loginForm = document.querySelector('.login');
-    const accountForm = document.querySelector('.account');
+    const userRole = localStorage.getItem('userRole'); // Pobierz rolę użytkownika
+    const username = localStorage.getItem('username'); // Pobierz nazwę użytkownika
+    const loginForm = document.querySelector('.login'); // Formularz logowania
+    const accountForm = document.querySelector('.account'); // Sekcja konta
     
     if (userRole && username) {
-        // Jeśli użytkownik jest zalogowany, pokaż dane konta
+        // Jeśli użytkownik jest zalogowany, pokaż sekcję konta
         loginForm.style.display = 'none';
         accountForm.style.display = 'block';
         document.querySelector('.welcome-message').innerText = `Witaj, ${username}!`;
@@ -70,54 +80,11 @@ function checkLoginStatus() {
 // Wywołaj funkcję sprawdzającą stan logowania po załadowaniu strony
 document.addEventListener('DOMContentLoaded', checkLoginStatus);
 
-// // Obsługa formularza rejestracji
-// registerForm.addEventListener('submit', (event) => {
-//     event.preventDefault();
-
-//     const username = registerForm.querySelector('input[type="text"]').value;
-//     const password = registerForm.querySelector('input[type="password"]').value;
-//     const role = registerForm.querySelector('#role').value;
-
-//     if (username && password) {
-//         const isSaved = saveUserToLocalStorage(username, password, role);
-        
-//         if (isSaved) {
-//             alert('Rejestracja zakończona sukcesem!');
-//             registerForm.reset();
-//         }
-//     } else {
-//         alert('Proszę wypełnić wszystkie pola!');
-//     }
-// });
-// Funkcja obsługi rejestracji
-// registerForm.addEventListener('submit', (event) => {
-//     event.preventDefault();
-
-//     const username = registerForm.querySelector('input[type="text"]').value;
-//     const password = registerForm.querySelector('input[type="password"]').value;
-//     const role = registerForm.querySelector('#role').value;
-
-//     // Walidacja hasła
-//     if (!validatePassword(password)) {
-//         alert('Hasło musi mieć co najmniej 4 znaki i zawierać co najmniej jedną cyfrę!');
-//         return; // Przerwanie rejestracji, jeśli hasło nie spełnia wymagań
-//     }
-
-//     if (username && password) {
-//         const isSaved = saveUserToLocalStorage(username, password, role);
-        
-//         if (isSaved) {
-//             alert('Rejestracja zakończona sukcesem!');
-//             registerForm.reset();
-//         }
-//     } else {
-//         alert('Proszę wypełnić wszystkie pola!');
-//     }
-// });
-// Funkcja obsługi rejestracji
+// Obsługa rejestracji użytkownika
 registerForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Zapobiegaj domyślnemu wysyłaniu formularza
 
+    // Pobierz dane z formularza rejestracji
     const username = registerForm.querySelector('input[type="text"]').value;
     const password = registerForm.querySelector('input[type="password"]').value;
     const role = registerForm.querySelector('#role').value;
@@ -125,17 +92,17 @@ registerForm.addEventListener('submit', (event) => {
     // Walidacja hasła
     if (!validatePassword(password)) {
         alert('Hasło musi mieć co najmniej 4 znaki i zawierać co najmniej jedną cyfrę!');
-        return; // Przerwanie rejestracji, jeśli hasło nie spełnia wymagań
+        return; // Zatrzymaj rejestrację, jeśli hasło jest niepoprawne
     }
 
     if (username && password) {
-        const isSaved = saveUserToLocalStorage(username, password, role);
+        const isSaved = zarejestrujSie(username, password, role);
         
         if (isSaved) {
             alert('Rejestracja zakończona sukcesem!');
-            registerForm.reset();
+            registerForm.reset(); // Wyczyść formularz
             
-            // Po udanej rejestracji przełącz formularz na logowanie
+            // Przełącz formularz na logowanie po rejestracji
             wrapper.classList.remove('active');
         }
     } else {
@@ -143,25 +110,28 @@ registerForm.addEventListener('submit', (event) => {
     }
 });
 
-
-// Obsługa formularza logowania
+// Obsługa logowania użytkownika
 loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Zapobiegaj domyślnemu wysyłaniu formularza
 
+    // Pobierz dane z formularza logowania
     const username = loginForm.querySelector('input[type="text"]').value;
     const password = loginForm.querySelector('input[type="password"]').value;
 
     if (username && password) {
-        const isValid = validateLogin(username, password);
+        const isValid = zalogujSie(username, password);
+        
         if (isValid) {
             alert('Zalogowano pomyślnie!');
-            loginForm.reset();
+            loginForm.reset(); // Wyczyść formularz logowania
 
             const userRole = localStorage.getItem('userRole');
+            
+            // Przekierowanie na odpowiednią stronę w zależności od roli użytkownika
             if (userRole === 'sprzedawca') {
-                window.location.href = 'sprzedawca.html'; // Przekierowanie na stronę sprzedawcy
+                window.location.href = '/sprzedawca.html';
             } else {
-                window.location.href = 'klient.html'; // Przekierowanie na stronę klienta
+                window.location.href = '/klient.html';
             }
         } else {
             alert('Błędne dane logowania!');
@@ -171,11 +141,14 @@ loginForm.addEventListener('submit', (event) => {
     }
 });
 
-// Obsługa wylogowania
+// Obsługa wylogowania użytkownika
 document.getElementById('logout').addEventListener('click', () => {
+    // Usuń dane logowania z localStorage
     localStorage.removeItem('userRole');
     localStorage.removeItem('username');
-    checkLoginStatus(); // Zaktualizuj stan logowania
+    
+    // Zaktualizuj interfejs na brak zalogowania
+    checkLoginStatus();
     alert('Wylogowano pomyślnie!');
 });
 
@@ -185,6 +158,7 @@ function validatePassword(password) {
     const passwordPattern = /^(?=.*\d).{4,}$/;
     return passwordPattern.test(password);
 }
+
 
 
 
