@@ -148,6 +148,7 @@ input, select {
     display: flex;
     flex-direction:row;
     justify-content: center;
+   
 }
 footer{
     background-color: #f8c7ed;
@@ -165,4 +166,10 @@ footer p {
     padding-bottom: 20px;
     padding-top: 20px;
     line-height: 1.6; 
+}
+
+label {
+    display: block;
+    margin-top: 10px; /* Mniejszy odstęp nad etykietą */
+    line-height: 1; /* Mniejsza wysokość linii */
 }
