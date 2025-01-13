@@ -67,7 +67,7 @@
             const sumaCenElement = document.getElementById('suma-cen');
 
             // Funkcja obliczająca sumę cen w koszyku
-            function obliczSumeCen() {
+            function obliczKoszyk() {
                 const suma = koszykProdukty.reduce((acc, produkt) => {
                     const cena = parseFloat(produkt.cena.replace(/[^0-9,.]/g, '').replace(',', '.')) || 0;
                     return acc + cena;
@@ -113,7 +113,7 @@
                 container.innerHTML = '<p>Twój koszyk jest pusty.</p>';
             }
 
-            obliczSumeCen();
+            obliczKoszyk();
 
             // Funkcja usuwająca produkt z koszyka
             function usunZKoszyka(index) {
