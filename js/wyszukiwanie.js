@@ -129,20 +129,6 @@ function dodajDoKoszyka(nazwa, cena, opis, imgSrc) {
     }
 }
 
-// Funkcja dodająca produkt do koszyka
-function dodajDoKoszyka(nazwa, cena, opis, imgSrc) {
-    const koszyk = JSON.parse(localStorage.getItem('koszyk')) || [];
-    const istnieje = koszyk.some(item => item.nazwa === nazwa);
-
-    if (!istnieje) {
-        koszyk.push({ nazwa, cena, opis, imgSrc });
-        localStorage.setItem('koszyk', JSON.stringify(koszyk));
-        console.log("Dodano do koszyka:", nazwa);
-    } else {
-        console.log("Produkt już znajduje się w koszyku:", nazwa);
-    }
-}
-
 // Obsługa kliknięć przycisków koszyka
 document.addEventListener('DOMContentLoaded', () => {
     const przyciskiKoszyka = document.querySelectorAll('.add-to-basket');
