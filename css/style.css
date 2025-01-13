@@ -558,3 +558,8 @@ border-radius: 10px;
 .hidden {
     display: none;
 }
+.add-to-basket.clicked {
+    border: 4px solid #6c0276; /* Ciemny fiolet */
+    border-radius: 5px; /* Zaokrąglenie rogów (opcjonalne) */
+    transition: border 0.2s ease; /* Płynna animacja zmiany obramowania */
+}
