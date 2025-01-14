@@ -113,8 +113,6 @@ function loadFromLocalStorage() {
     }
     return []; // Jeśli brak danych w localStorage, zwróć pustą tablicę
 }
-
-
 // Funkcja dodająca produkt do koszyka
 function dodajDoKoszyka(nazwa, cena, opis, imgSrc) {
     const koszyk = JSON.parse(localStorage.getItem('koszyk')) || [];
@@ -155,3 +153,4 @@ document.addEventListener('DOMContentLoaded', () => {
 const products = loadFromLocalStorage();
 
 renderItems(products);
+

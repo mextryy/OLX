@@ -50,13 +50,13 @@
             // Filtruj produkty dostępne
             const produktyDostepne = ulubioneProdukty.filter(produkt => produkt.available !== false);
 
-            // Jeśli są dostępne produkty, wyświetl je
+            // wyświetlanie produktów
             if (produktyDostepne.length > 0) {
                 produktyDostepne.forEach((produkt, index) => {
                     const div = document.createElement('div');
                     div.className = 'product';
 
-                    // Tworzenie struktury HTML dla każdego produktu
+                    // struktura html dla każdego produktu
                     div.innerHTML = `
                         <img src="${produkt.imgSrc}" alt="${produkt.nazwa}" style="width: 100%; height: auto;">
                         <h2>${produkt.nazwa}</h2>
@@ -75,7 +75,7 @@
                     container.appendChild(div);
                 });
 
-                // Obsługa dodawania produktów do koszyka
+                // Obsługa dodawania produktów do koszyka z ulubionych
                 document.querySelectorAll('.add-to-cart').forEach(button => {
                     button.addEventListener('click', (e) => {
                         const nazwa = e.target.getAttribute('data-nazwa');
@@ -94,8 +94,8 @@
                     });
                 });
             } else {
-                // Wyświetl komunikat, jeśli brak ulubionych produktów
-                container.innerHTML = '<p>Brak ulubionych produktów.</p>';
+                // komunikat w przypadku braku ulubioncyh
+                container.innerHTML = '<p>Brak ulubionych produktów :(</p>';
             }
         });
 
@@ -103,9 +103,8 @@
         function dodajDoKoszyka(nazwa, cena, opis, imgSrc) {
             let koszyk = JSON.parse(localStorage.getItem('koszyk')) || [];
             const istnieje = koszyk.some(item => item.nazwa === nazwa);
-
+        //możliwość dodania tylko raz 1 produktu do koszyka
             if (!istnieje) {
-                // Dodaj produkt, jeśli nie istnieje już w koszyku
                 koszyk.push({ nazwa, cena, opis, imgSrc });
                 localStorage.setItem('koszyk', JSON.stringify(koszyk));
                 console.log("Dodano do koszyka:", { nazwa, cena, opis, imgSrc });
@@ -118,7 +117,7 @@
             // Usuń produkt z listy
             ulubioneProdukty.splice(index, 1);
             localStorage.setItem('ulubione', JSON.stringify(ulubioneProdukty));
-            // Odśwież stronę, by zaktualizować widok
+            // Odświeżanie stroy żeby zaktualizować
             location.reload();
         }
     </script>

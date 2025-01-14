@@ -1,3 +1,4 @@
+//DLA GŁÓWNEJ STRONY
 
 // Inicjalizacja listy ulubionych z LocalStorage
 let ulubione = JSON.parse(localStorage.getItem('ulubione')) || [];
@@ -56,31 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Inicjalizacja listy koszyka z LocalStorage
-let koszyk = JSON.parse(localStorage.getItem('koszyk')) || [];
-
-// Funkcja dodająca produkt do koszyka
-function dodajDoKoszyka(nazwa, cena, opis, imgSrc) {
-    // Sprawdzenie, czy produkt już istnieje w koszyku
-    const istnieje = koszyk.some(item => item.nazwa === nazwa);
-
-    if (!istnieje) {
-        // Tworzenie nowego obiektu produktu
-        const nowyProdukt = {
-            nazwa: nazwa,
-            cena: cena,
-            opis: opis,
-            imgSrc: imgSrc
-        };
-
-        // Dodanie nowego produktu do koszyka
-        koszyk.push(nowyProdukt);
-        localStorage.setItem('koszyk', JSON.stringify(koszyk)); // Zapis koszyka do LocalStorage
-        console.log("Dodano do koszyka:", nowyProdukt);
-    } else {
-        console.log("Produkt już znajduje się w koszyku:", nazwa);
-    }
-}
 
 // Obsługa przycisku "Kup teraz"
 document.addEventListener('DOMContentLoaded', () => {
