@@ -11,7 +11,7 @@ function getFilters() {
     };
 }
 //Funkcja renderuje produkty na stronie.
-function renderItems(items) {
+function wystawPrzedmiot(items) {
     const productsContainer = document.querySelector('.products');
     productsContainer.innerHTML = ''; // Czyści obszar przed renderowaniem nowych produktów
 
@@ -32,8 +32,7 @@ function renderItems(items) {
                 </div>
                 <p class="price">${item.cena} zł</p>
                 <p class="description">${item.opis}</p>
-                <button class="delete-item" style="background-color: #ff00aa; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px; font-size: 16px;">Usuń</button>
-
+              
             `;
             productsContainer.appendChild(productDiv);
         });
@@ -42,21 +41,13 @@ function renderItems(items) {
         document.querySelectorAll('.delete-item').forEach(button => {
             button.addEventListener('click', (e) => {
                 const index = e.target.getAttribute('data-index');
-                deleteItem(index);
+                usunPrzedmiot(index);
             });
         });
     }
 }
 
-// Funkcja do usuwania produktu
-function deleteItem(index) {
-    const products = loadFromLocalStorage();
-    products.splice(index, 1); // Usuń przedmiot z tablicy
 
-    // Zapisz zmiany do localStorage
-    localStorage.setItem('products', JSON.stringify(products));
-    renderItems(products);
-}
 // Funkcja ładująca dane z localStorage, jeśli są dostępne
 function loadFromLocalStorage() {
     const savedProducts = localStorage.getItem('products');
@@ -71,4 +62,4 @@ function loadFromLocalStorage() {
 // Ładowanie produktów z localStorage przy starcie strony
 const products = loadFromLocalStorage();
 
-renderItems(products);
+wystawPrzedmiot(products);

@@ -25,14 +25,14 @@ document.querySelector('.filters').addEventListener('input', (event) => {
     const query = event.target.value.trim();
 
     if (query === '') {
-        renderItems(products); // Przywróć wszystkie produkty
+        wystawPrzedmiot(products); // Przywróć wszystkie produkty
     }
 });
     // Jeżeli nie ma wyników i zapytanie jest puste, wyświetl komunikat
     if (query === '' && !Object.values(filters).some(filter => filter !== '' && filter !== 0 && filter !== Infinity)) {
         displayNoResultsMessage();
     } else {
-        renderItems(filteredItems);
+        wystawPrzedmiot(filteredItems);
     }
 }
 
@@ -53,7 +53,7 @@ function getFilters() {
     };
 }
 //Funkcja renderuje produkty na stronie.
-function renderItems(items) {
+function wystawPrzedmiot(items) {
     const productsContainer = document.querySelector('.products');
     productsContainer.innerHTML = ''; // Czyści obszar przed renderowaniem nowych produktów
 
@@ -100,7 +100,7 @@ document.querySelector('.search-bar-input').addEventListener('input', (event) =>
     const query = event.target.value.trim();
 
     if (query === '') {
-        renderItems(products); // Przywróć wszystkie produkty
+        wystawPrzedmiot(products); // Przywróć wszystkie produkty
     }
 });
 // Funkcja ładująca dane z localStorage, jeśli są dostępne
@@ -154,4 +154,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // Ładowanie produktów z localStorage przy starcie strony
 const products = loadFromLocalStorage();
 
-renderItems(products);
+wystawPrzedmiot(products);
